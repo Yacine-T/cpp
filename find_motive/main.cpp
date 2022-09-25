@@ -2,15 +2,32 @@
 #include <string>
 #include <fstream>
 #include <vector>
-#include <boost/algorithm/string.hpp>
 
+bool contains(std::string str, std::string substr){
+        int i = 0;
+        int j = 0;
+        int save_j = j;
+        while(i < str.size() && j < substr.size()){
+            if (str[i] == substr[j])
+            {
+                save_j = j;
+                j++;
+            } else
+            {
+                    j = save_j;
+            }
+            i++;
+        }
 
+        if(j == substr.size())
+            return true;
+        return false;
+}
 
 std::vector<std::string> tokenize(std::ifstream &ifs) {
     std::vector<std::string> v;
     std::string tmp;
-    while (ifs.good())
-    {
+    while (ifs.good()){
         ifs >> tmp;
         v.push_back(tmp);
     }
@@ -20,7 +37,7 @@ std::vector<std::string> tokenize(std::ifstream &ifs) {
 int getNbOcc(std::vector<std::string> v, std::string subStr){
     int count = 0;
     for (int i = 0; i < v.size(); i++) {
-        bool b =  boost::algorithm::contains(v[i], subStr);
+        bool b =  contains(v[i], subStr);
         if (b == 1)
         {
             count++;
