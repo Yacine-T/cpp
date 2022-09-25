@@ -1,31 +1,47 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <vector>
+#include <boost/algorithm/string.hpp>
 
-int main() {
 
-    std::string path;
-    //std::string symbol;
-    std::cout << "Could give the the file path you want to analyze ?" << std::endl;
-    std::cin >> path;
-    std::ifstream file(path);
-    if (file.is_open()) {
-        std::string tmp;
-        std::string file_content;
-        while (file.good())
+
+std::vector<std::string> tokenize(std::ifstream &ifs) {
+    std::vector<std::string> v;
+    std::string tmp;
+    while (ifs.good())
+    {
+        ifs >> tmp;
+        v.push_back(tmp);
+    }
+    return v;
+}
+
+int getNbOcc(std::vector<std::string> v, std::string subStr){
+    int count = 0;
+    for (int i = 0; i < v.size(); i++) {
+        bool b =  boost::algorithm::contains(v[i], subStr);
+        if (b == 1)
         {
-            file >> tmp;
-            tmp.append(" ");
-            file_content.append(tmp);
+            count++;
         }
-        std::cout << "The file content is : \n" << file_content;
+    }
+
+    return count;
+}
+
+int main(int argc, char *argv[]) {
+    std::ifstream file(argv[1]);
+    if (argc != 3) {
+        std::cout << "Usage : You have to enter only 2 arguments.";
+        return 1;
+    }
+    if (file.is_open()) {
+        std::vector<std::string> tokens = tokenize(file);
+        int res = getNbOcc(tokens, argv[2]);
+        std::cout << "The file " << argv[1] << " contains " << res << " words containing the motive " << argv[2];
         return 0;
     }
-    std::cout << "The file " << path << " could not be opened";
+    std::cout << "The file " << argv[1] << " could not be opened";
     return 1;
-
-    /*std::cout << "Veuillez entrer un motif svp ?" << std::endl;
-    std::cin >> symbol;
-    std::cout << "Chemin : " << file << "\nmotif : " << symbol;
-    */
 }
