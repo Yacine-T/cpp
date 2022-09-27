@@ -1,0 +1,19 @@
+============================== Code Review du groupe 13 ==============================
+		
+I. Exercice : is_prime
+	1. Fichier : main.cpp
+	
+		- c'est très bien
+		
+	2. Fichier : is_prime.cpp
+	
+		a - à la ligne 2 , [#include "iostream"] c'est mieux [#include <iostream>]
+		
+		b - à la ligne 8, la condition n'est pas vraiment nécessaire car si ça tombe pas ce  cas là, il va retourner true, parcontre c'est le plus rapide comme solution.
+		
+		c - pour la boucle for, c'est pas facile à comprendre le code, c'est mieux de metre quelques mots comme commentaire pour l'expliquer.
+		
+	3 Fichier : is_prime.h
+		a - Les macros "#ifndef CPP_FIND_MOTIVE_H #define CPP_FIND_MOTIVE_H" peuvent être remplacé par "#progma once"
+		
+		
