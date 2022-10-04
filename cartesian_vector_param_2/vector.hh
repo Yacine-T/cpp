@@ -15,7 +15,7 @@ public:
 
 // Add suitable constructors
     Vector();
-    Vector(/*args*/);
+    Vector(std::initializer_list<value> l);
     // possibly more
 
 // Public Member functions here
