@@ -1,4 +1,6 @@
 *.pdf
 .idea
 ./find_motive/test.txt
-./find_motive/
+./find_motive/cmake-build-debug/
+./cartesian_vector_param_2/cmake-build-debug/
+./is_prime_prog/cmake-build-debug/
