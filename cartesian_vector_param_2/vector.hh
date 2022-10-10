@@ -1,6 +1,7 @@
 #pragma once
 
 #include <ostream>
+#include <memory>
 
 #include "config.h"
 
@@ -24,8 +25,8 @@ public:
 
 private:
 // Private Member functions here
-
 // Member variables are ALWAYS private, and they go here
+    value m_data[NDIM];
 };
 
 // Nonmember function operators go here

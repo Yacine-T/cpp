@@ -6,7 +6,7 @@
 #include <vector>
 #include <cstring> //strcmp
 
-#if NDIM == 2
+/*##if NDIM == 2
 void testInit()
 {
     auto u = Vector{};
@@ -23,7 +23,7 @@ void testInit()
     std::cout << u * v << '\n'; // 60
 
 }
-#elif NDIM == 3
+elif NDIM == 3
 void testInit()
 {
     auto u = Vector{};
@@ -123,13 +123,19 @@ void testVar(size_t n, int argc, char* argv[])
     std::cout << sum;
     std::cout.put('\n');
 }
-
+*/
 
 
 
 int main(int argc, char* argv[])
 {
-    if (argc <= 2)
+    auto v = Vector{ 4, 7 };
+    auto t = Vector{ -1, 6 };
+    while ( != NULL) {
+
+    }
+
+   /* if (argc <= 2)
         throw std::runtime_error("Expects: first arg, number of elements, "
                                  "other args, instructions to run");
     size_t n_elem = std::atol(argv[1]);
@@ -138,7 +144,7 @@ int main(int argc, char* argv[])
     else if (std::strcmp(argv[2], "testAdd") == 0)
         testAdd(n_elem);
     else
-        testVar(n_elem, argc - 2, &(argv[2]));
+        testVar(n_elem, argc - 2, &(argv[2]));*/
 
     return 0;
 }
