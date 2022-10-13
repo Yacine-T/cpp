@@ -1,6 +1,0 @@
-# ninja log v5
-0	409	1665683541503357563	CMakeFiles/cartesian_vector_param_2.dir/vector.cpp.o	571ec63b66523dfe
-0	380	1665683755504681653	CMakeFiles/cartesian_vector_param_2.dir/main.cc.o	d1959c80f064408b
-0	488	1665683541579358039	CMakeFiles/cartesian_vector_param_2.dir/main_new.cc.o	f494da1a6b0bb113
-0	33	1665683804508981420	build.ninja	15fa407fa69fc948
-0	76	1665683804588981909	cartesian_vector_param_2	85b9a94d15e19321
