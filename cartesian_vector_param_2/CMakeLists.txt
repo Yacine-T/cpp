@@ -7,7 +7,6 @@ include_directories(.)
 
 add_executable(cartesian_vector_param_2
         config.h
-        main.cc
         main_new.cc
         vector.cpp
         vector.hh)
