@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 include_directories(.)
 
-add_executable(cartesian_vector_param_2
+add_executable(main
         config.h
         main_new.cc
         vector.cpp
