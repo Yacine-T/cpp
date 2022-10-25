@@ -27,7 +27,7 @@ echo "{0}
 # Compare
 rr=$(diff tmpCartVecParam.a7d371 tmpCartVecParam.a7d372)
 
-if [ -z $rr ]
+if [[ -z $rr ]]
 then
     echo "Passed simple test"
 else
