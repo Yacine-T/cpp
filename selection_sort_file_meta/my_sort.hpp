@@ -1,31 +1,48 @@
-void swap(auto &a, auto &b) {
-    auto t = a;
-    a = b;
-    b = t;
+// Change me instead
+// All occurences of XXX need to be replaced with
+// something more meaningful
+template <class T>
+void swap(T &a, T &b)
+{
+    T c(std::move(a));
+    a = std::move(b);
+    b = std::move(c);
+}
+template <class T, size_t N>
+void swap(T (&a)[N], T (&b)[N])
+{
+    for (size_t i = 0; i < N; ++i)
+        swap(a[i], b[i]);
 }
 
-template<class C>
-C my_min(C first, C last, auto lambda) {
-    if(first == last) {
-        return last;
+template <class T>
+void my_selection_sort(T begin, T end)
+{
+    end--;
+    while (begin != end)
+    {
+        T max = begin;
+        for (T st = begin; st != end; st++)
+            if (*max > *st)
+                max = st;
+        if (*max < *end)
+            swap(*max, *end);
+        end--;
     }
-
-    C smallest = first;
-    ++first;
-
-    for(; first != last; ++first) {
-        if(lambda(*first, *smallest)) {
-            smallest = first;
-        }
-    }
-
-    return smallest;
 }
 
-template <typename Iterator>
-void my_selection_sort(Iterator start, Iterator end, auto lambda) {
-    for(; start != end; ++start) {
-        auto min = my_min<Iterator>(start, end, lambda);
-        swap(*min, *start);
+template <class T, class SOR>
+void my_selection_sort(T begin, T end, SOR sort)
+{
+    end--;
+    while (begin != end)
+    {
+        T max = begin;
+        for (T st = begin; st != end; st++)
+            if (sort(*max, *st))
+                max = st;
+        if (sort(*end, *max))
+            swap(*max, *end);
+        end--;
     }
 }
